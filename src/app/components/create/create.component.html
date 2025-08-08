@@ -1,0 +1,44 @@
+<form [formGroup]="characterForm" (ngSubmit)="createCharacter()">
+    <label for="name">Character Name:</label>
+    <input type="text" id="name" formControlName="name">
+    <p *ngIf="characterForm.get('name')?.invalid && characterForm.get('name')?.touched" style="color: red;">
+      Name is required.
+    </p>
+  
+    <label for="gender">Gender:</label>
+    <select id="gender" formControlName="gender">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <p *ngIf="characterForm.get('gender')?.invalid && characterForm.get('gender')?.touched" style="color: red;">
+      Gender is required.
+    </p>
+
+    <label for="head">Head Option:</label>
+    <select id="head" formControlName="head">
+      <option value ="1">1</option>
+      <option value ="2">2</option>
+      <option value ="3">3</option>
+    </select>
+
+    <label for="body">Body Option</label>
+      <select id="body" formControlName="body">
+        <option value ="1">1</option>
+        <option value ="2">2</option>
+        <option value ="3">3</option>
+      </select>
+    
+    <h3>Stats</h3>
+    <p>Available points: {{ availablePoints }}</p>
+      <div formGroupName="stats">
+        <div *ngFor="let stat of ['strength', 'stamina', 'agility', 'intellect']">
+          <label>{{stat | titlecase}}: </label>
+          <span>{{ characterForm.get('stats')?.get(stat)?.value}}</span>
+          <button type="button" (click)="increaseStat(stat)" [disabled]="availablePoints === 0">+</button>
+          <button type="button" (click)="decreaseStat(stat)" [disabled]="characterForm.get('stats')?.get(stat)?.value <= 1">−</button>
+
+        </div>
+      </div>
+    <button type="submit" [disabled]="characterForm.invalid">Create Character</button>
+  </form>

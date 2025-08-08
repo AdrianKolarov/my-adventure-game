@@ -1,0 +1,16 @@
+@if(authService.currentUserSig() == null){
+  <div>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+    <a routerLink="/graveyard">Graveyard</a>
+  </div>
+}
+@if(authService.currentUserSig()){
+  <div>
+    <a routerLink="/create">Create Character</a>
+    <a routerLink="/list">List</a>
+    <a routerLink="/graveyard">Graveyard</a>
+    <span (click)="logout()">Logout</span>
+  </div>
+}
+<router-outlet></router-outlet>

@@ -1,0 +1,8 @@
+<div *ngFor="let entry of graveyardEntries" class="grave-entry">
+  <h3>{{ entry.characterName }} (Level {{ entry.deathLevel }})</h3>
+  <p *ngIf="!isEditing(entry.id)">{{ entry.note }}</p>
+  <textarea *ngIf="isEditing(entry.id)" [(ngModel)]="editedNote"></textarea>
+  <button *ngIf="entry.userId === currentUserId && !isEditing(entry.id)" (click)="startEditing(entry.id, entry.note)">Edit</button>
+  <button *ngIf="isEditing(entry.id)" (click)="saveNote(entry.id)">Save</button>
+</div>
+

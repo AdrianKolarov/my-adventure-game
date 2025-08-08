@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let character of characters">
+      {{ character.name }} - Level {{ character.currentLevel }}
+      <button 
+      (click)="enterWorld(character)"
+      [disabled]="character.flags?.hasDied || character.hasEscaped">Enter World</button>
+      <button (click)="deleteCharacter(character.id)">Delete</button>
+    </li>
+  </ul>
+  

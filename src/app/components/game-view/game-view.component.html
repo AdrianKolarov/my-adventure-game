@@ -1,0 +1,37 @@
+<button (click)="toggleInventory()">Inventory</button>
+<button (click)="exitToList()">Exit</button>
+
+<div class="dialog" (click)="advanceDialog()">
+    <p>{{ currentLine }}</p>
+  </div>
+  
+  <div class="choices" *ngIf="allDialogShown()">
+    <button *ngFor="let choice of filteredChoices" (click)="makeChoice(choice)">
+      {{ choice }}
+    </button>
+  </div>
+  <div *ngIf="showDeathNoteModal" class="modal-backdrop">
+    <div class="modal">
+      <h2>Write a Death Note</h2>
+      <textarea [(ngModel)]="deathNoteText" rows="5" placeholder="Your final words..."></textarea>
+      <button (click)="submitDeathNote()">Submit</button>
+    </div>
+  </div>
+  <div *ngIf="showInventoryModal" class="modal-backdrop">
+  <div class="modal">
+    <h2>Character Inventory</h2>
+    <div *ngIf="character">
+      <p><strong>Head:</strong> {{ character.head }}</p>
+      <p><strong>Body:</strong> {{ character.body }}</p>
+      <p><strong>Stats:</strong></p>
+      <ul>
+        <li *ngFor="let stat of statKeys">{{ stat }}: {{ character.stats[stat] }}</li>
+      </ul>
+      <p><strong>Inventory:</strong></p>
+      <ul>
+        <li *ngFor="let item of character.inventory">{{ item }}</li>
+      </ul>
+    </div>
+    <button (click)="toggleInventory()">Close</button>
+  </div>
+</div>
