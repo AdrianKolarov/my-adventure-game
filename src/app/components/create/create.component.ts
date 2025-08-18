@@ -21,7 +21,7 @@ export class CreateComponent {
   constructor(private fb: FormBuilder, private authService: AuthService, private playerCharacterService: PlayerCharactersService){
     this.characterForm = this.fb.group({
       name: ['', Validators.required],
-      gender: ['', Validators.required],
+      gender: ['Female', Validators.required],
       head: ['1'],
       body: ['1'],
       stats: this.fb.group({

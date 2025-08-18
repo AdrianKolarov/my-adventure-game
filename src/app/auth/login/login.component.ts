@@ -9,6 +9,7 @@ import { AuthService } from '../../auth.service';
   templateUrl: './login.component.html',
   standalone: true,
   imports: [ReactiveFormsModule],
+  styleUrl: './login.component.css',
 })
 export class LogicComponent {
   fb = inject(FormBuilder);

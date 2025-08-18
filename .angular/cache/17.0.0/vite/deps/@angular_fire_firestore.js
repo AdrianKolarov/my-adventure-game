@@ -1,7 +1,6 @@
 import {
   AuthInstances
-} from "./chunk-KG7PCLFH.js";
-import "./chunk-6RNYWZ3V.js";
+} from "./chunk-544UG6FM.js";
 import {
   FirebaseApp,
   FirebaseApps,
@@ -12,6 +11,7 @@ import {
   ɵgetDefaultInstanceOf,
   ɵzoneWrap
 } from "./chunk-UXRSVUPI.js";
+import "./chunk-6RNYWZ3V.js";
 import {
   Component,
   FirebaseError,
@@ -42,8 +42,8 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule
 } from "./chunk-WCQRF6QL.js";
-import "./chunk-D3JPK7GR.js";
 import "./chunk-XPDGEMTV.js";
+import "./chunk-D3JPK7GR.js";
 import {
   Observable,
   concatMap,

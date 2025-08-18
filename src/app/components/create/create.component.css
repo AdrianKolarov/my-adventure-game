@@ -1,0 +1,125 @@
+.wrapper {
+  background-image: url('../../data/create-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  min-height: 100vh;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;        
+  gap: 10px;                     
+  width: 320px;                 
+  font-family: "LifeCraft", serif; 
+  color: #e6974d;
+  margin-left: 55vw;
+  padding-top: 23vh;             
+}
+
+form p {
+  font-size: 20px;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 20px;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 2px solid #8b6f4e;
+  border-radius: 6px;
+  background: #fdf5e6;           
+  font-family: inherit;
+  font-size: 18px;
+  color: #2a1c0f;
+}
+
+form h3 {
+  margin-top: 20px;
+  border-bottom: 2px solid #8b6f4e;
+  padding-bottom: 4px;
+  font-size: 20px;
+}
+
+form div[formGroupName="stats"] > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.stat-controls label {
+  margin-right: auto; 
+}
+
+.stat-controls span {
+  min-width: 28px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.stat-controls button {
+  padding: 4px 8px;
+  line-height: 1;
+  border: none;
+  border-radius: 4px;
+  background: #8b6f4e;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.stat-controls button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+form button[type="submit"] {
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid #8b6f4e;
+  border-radius: 8px;
+  background: #d4b483;
+  color: #2a1c0f;
+  font-family: LifeCraft, serif;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form button[type="submit"]:disabled {
+  background: #e2d2b0;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.preview {
+  position: absolute;
+  left: 16vw;        
+  top: 34vh;         
+  width: 28vw;      
+  aspect-ratio: 3 / 5; 
+  pointer-events: none;
+  --head-x: 73px;  
+  --head-y: -10px;
+}
+
+.preview .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.preview .body { z-index: 1; }
+.preview .head {
+  z-index: 2;
+  transform: translate(var(--head-x), var(--head-y));
+  transform-origin: top left;
+}

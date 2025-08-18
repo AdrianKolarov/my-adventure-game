@@ -1,10 +1,11 @@
+<div class="register-container">
 <h1>Register</h1>
 
 @if (errorMessage) {
-  <div>{{ errorMessage }}</div>
+  <div class="error-message">{{ errorMessage }}</div>
 }
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form">
   <div>
     <input type="text" placeholder="Username" formControlName="username" />
   </div>
@@ -18,3 +19,4 @@
     <button type="submit">Sign Up</button>
   </div>
 </form>
+</div>

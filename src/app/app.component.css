@@ -1,3 +1,23 @@
-.defer {
-  margin-top: 300px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+.wrapper {
+  background-image: url('./data/login_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 20px; 
+ 
+}
+

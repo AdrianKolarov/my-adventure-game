@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
   authService = inject(AuthService)

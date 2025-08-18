@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+
+}
+@font-face {
+  font-family: 'LifeCraft';
+  src: url('./assets/fonts/LifeCraft_Font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'LifeCraft', serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  border-radius: 0;
+
+}
