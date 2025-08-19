@@ -1,8 +1,19 @@
-<div *ngFor="let entry of graveyardEntries" class="grave-entry">
-  <h3>{{ entry.characterName }} (Level {{ entry.deathLevel }})</h3>
-  <p *ngIf="!isEditing(entry.id)">{{ entry.note }}</p>
-  <textarea *ngIf="isEditing(entry.id)" [(ngModel)]="editedNote"></textarea>
-  <button *ngIf="entry.userId === currentUserId && !isEditing(entry.id)" (click)="startEditing(entry.id, entry.note)">Edit</button>
-  <button *ngIf="isEditing(entry.id)" (click)="saveNote(entry.id)">Save</button>
-</div>
+<div class="wrapper">
+  <!-- Scroll panel overlay -->
+  <div class="scroll-panel">
+    <div class="scroll-inner">
+      <div *ngFor="let entry of graveyardEntries" class="grave-entry">
+        <h3>{{ entry.characterName }} (Died on Level {{ entry.deathLevel }})</h3>
 
+        <p *ngIf="!isEditing(entry.id)" class="note">{{ entry.note }}</p>
+        <textarea *ngIf="isEditing(entry.id)" [(ngModel)]="editedNote" class="note-edit"></textarea>
+
+        <div class="actions">
+          <button *ngIf="entry.userId === currentUserId && !isEditing(entry.id)"
+                  (click)="startEditing(entry.id, entry.note)">Edit</button>
+          <button *ngIf="isEditing(entry.id)" (click)="saveNote(entry.id)">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

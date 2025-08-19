@@ -1,10 +1,30 @@
-<ul>
-    <li *ngFor="let character of characters">
-      {{ character.name }} - Level {{ character.currentLevel }}
-      <button 
-      (click)="enterWorld(character)"
-      [disabled]="character.flags?.hasDied || character.hasEscaped">Enter World</button>
-      <button (click)="deleteCharacter(character.id)">Delete</button>
-    </li>
-  </ul>
-  
+<div class="wrapper">
+  <!-- Parchment overlay area on the left -->
+  <div class="scroll-panel">
+    <div class="scroll-inner">
+      <ul class="char-list">
+        <li *ngFor="let character of characters" class="char-item">
+          <div class="line">
+            <span class="name">{{ character.name }}</span>
+            <span class="level">Lv {{ character.currentLevel }}</span>
+
+            <span *ngIf="character.flags?.hasDied" class="badge badge-dead">Dead</span>
+            <span *ngIf="character.hasEscaped" class="badge badge-escaped">Escaped</span>
+          </div>
+
+          <div class="actions">
+            <button
+              class="btn btn-primary"
+              (click)="enterWorld(character)"
+              [disabled]="character.flags?.hasDied || character.hasEscaped">
+              Enter World
+            </button>
+            <button class="btn btn-danger" (click)="deleteCharacter(character.id)">
+              Delete
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

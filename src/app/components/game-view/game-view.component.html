@@ -1,28 +1,38 @@
-<button (click)="toggleInventory()">Inventory</button>
-<button (click)="exitToList()">Exit</button>
+<button class="btn btn-dark" (click)="toggleInventory()">Inventory</button>
+<button class="btn btn-red" (click)="exitToList()">Exit</button>
 
-<div class="dialog" (click)="advanceDialog()">
-    <p>{{ currentLine }}</p>
+<div class="stage" (click)="advanceDialog()">
+
+  <div class="dialogue-box">
+    <img *ngIf="" [src]="" class="portrait" />
+    <div class="dialogue-text">
+      <p>{{ currentLine }}</p>
+    </div>
   </div>
-  
+
   <div class="choices" *ngIf="allDialogShown()">
     <button *ngFor="let choice of filteredChoices" (click)="makeChoice(choice)">
       {{ choice }}
     </button>
   </div>
-  <div *ngIf="showDeathNoteModal" class="modal-backdrop">
-    <div class="modal">
-      <h2>Write a Death Note</h2>
-      <textarea [(ngModel)]="deathNoteText" rows="5" placeholder="Your final words..."></textarea>
-      <button (click)="submitDeathNote()">Submit</button>
-    </div>
+</div>
+
+
+<div *ngIf="showDeathNoteModal" class="modal-backdrop">
+  <div class="modal">
+    <h2>Write a Death Note</h2>
+    <textarea [(ngModel)]="deathNoteText" rows="5" placeholder="Your final words..."></textarea>
+    <button class="btn btn-accent" (click)="submitDeathNote()">Submit</button>
   </div>
-  <div *ngIf="showInventoryModal" class="modal-backdrop">
+</div>
+
+
+<div *ngIf="showInventoryModal" class="modal-backdrop">
   <div class="modal">
     <h2>Character Inventory</h2>
     <div *ngIf="character">
       <p><strong>Head:</strong> {{ character.head }}</p>
-      <p><strong>Body:</strong> {{ character.body }}</p>
+      <p><strong>Gender:</strong> {{ character.gender }}</p>
       <p><strong>Stats:</strong></p>
       <ul>
         <li *ngFor="let stat of statKeys">{{ stat }}: {{ character.stats[stat] }}</li>
@@ -32,6 +42,6 @@
         <li *ngFor="let item of character.inventory">{{ item }}</li>
       </ul>
     </div>
-    <button (click)="toggleInventory()">Close</button>
+    <button class="btn btn-dark" (click)="toggleInventory()">Close</button>
   </div>
 </div>

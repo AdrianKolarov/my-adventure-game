@@ -1,17 +1,111 @@
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.dialogue-box {
+  position: absolute;
+  bottom: 15vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  gap: 12px;
+  color: white;
+}
+
+
+.portrait {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.dialogue-text {
+  flex: 1;
+  font-size: 26px
+}
+
+.choices {
+  position: absolute;
+  bottom: 30vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.choices button {
+  padding: 12px 20px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  font-family: lifeCraft, sans-serif;
+  font-size: 24px;
+}
+
 .modal-backdrop {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .modal {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-  }
-  
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: grid;
+  place-items: center;
+}
+
+.modal {
+  background: #9a7a53;
+  padding: 20px;
+  border-radius: 8px;
+  color: black;
+  max-width: 300px;
+  width: 60%;
+}
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-dark {
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-top: 10px;
+  margin-left:10px
+}
+.btn-dark:hover {
+  background: rgba(0,0,0,0.9);
+  transform: translateY(-1px);
+}
+.btn-red {
+  background: #b22222;
+  color: #fff;
+  border: 1px solid #8b1a1a;
+  margin-left: 10px
+}
+.btn-red:hover {
+  background: #d62828;
+  transform: translateY(-1px);
+}
+.btn-accent {
+  background: #3a7afe;
+  color: #fff;
+  border: 1px solid #2f5dcc;
+}
+.btn-accent:hover {
+  background: #1f5fe0;
+  transform: translateY(-1px);
+}

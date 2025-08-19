@@ -114,7 +114,8 @@ export class GameViewComponent implements OnInit {
   }
   exitToList() {
   this.router.navigate(['/list']);
-}
+  }
+  
 
   submitDeathNote() {
     const userId = this.authService.getUserId();

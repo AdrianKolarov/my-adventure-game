@@ -1,0 +1,135 @@
+/* Background image (save your image as /assets/characters_list_background.png) */
+.wrapper {
+  background-image: url('/assets/data/list_background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  min-height: 100vh;
+  position: relative;
+  color: #2b1b0f;                /* ink color */
+  --scroll-left: 4vw;   /* x offset of list panel */
+  --scroll-top: 22vh;    /* y offset of list panel */
+  --scroll-width: 33vw; /* width of parchment writing area */
+  --scroll-height: 70vh;
+}
+
+/* Position the parchment writing area.
+   Tweak these four values to line up with your scroll artwork. */
+
+
+.scroll-panel {
+  position: absolute;
+  left: var(--scroll-left);
+  top: var(--scroll-top);
+  width: var(--scroll-width);
+  height: var(--scroll-height);
+  display: grid;
+  pointer-events: auto;
+}
+
+.scroll-inner {
+  overflow: auto;
+  padding: 18px 22px 18px 26px;
+  background: transparent; /* parchment art shows through */
+  box-shadow: inset 0 0 18px rgba(0,0,0,.35);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,.45) transparent;
+}
+.scroll-inner::-webkit-scrollbar { width: 10px; }
+.scroll-inner::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.45);
+  border-radius: 6px;
+}
+
+/* List looks like ink lines on parchment */
+.char-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.char-item {
+  padding: 12px 4px 14px;
+  border-bottom: 1px dashed rgba(43,27,15,.35);
+}
+
+.line {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.name {
+  font-weight: 800;
+  color: #3b2818;
+  font-size: 18px;
+}
+
+.level {
+  font-size: 14px;
+  opacity: .85;
+}
+
+/* Status chips */
+.badge {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 12px;
+  border: 1px solid rgba(0,0,0,.25);
+}
+.badge-dead {
+  background: #3b0e0e;
+  color: #f9d2d2;
+}
+.badge-escaped {
+  background: #3b2f0e;
+  color: #f5e6b8;
+}
+
+/* Buttons styled as little leather tabs */
+.actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  appearance: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid #6f5538;
+  color: #1f140c;
+  background: linear-gradient(#9a7a53, #7d5f3e);
+}
+.btn:hover { filter: brightness(1.05); }
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: linear-gradient(#caa56f, #a6814f);
+  border-color: #7a5b3b;
+}
+
+.btn-danger {
+  background: linear-gradient(#b37561, #8c4e3a);
+  border-color: #6f3d2e;
+  color: #fff;
+}
+
+.btn[disabled] {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Responsive: the parchment area grows to fit small screens */
+@media (max-width: 900px) {
+  :root {
+    --scroll-left: 4vw;
+    --scroll-top: 14vh;
+    --scroll-width: 88vw;
+    --scroll-height: 60vh;
+  }
+}
