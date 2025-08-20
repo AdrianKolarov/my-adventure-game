@@ -22,7 +22,8 @@ export class GameViewComponent implements OnInit {
   showInventoryModal = false;
   character: any;
   statKeys: string[] = [];
-
+  backgroundUrl = ''
+  portraitUrl = ''
 
   constructor(private gameService: GameService, private authService: AuthService, private router: Router) {}
   ngOnInit(): void {
@@ -30,10 +31,33 @@ export class GameViewComponent implements OnInit {
     this.currentLineIndex = 0;
     this.currentLine = this.levelData.dialog[0];
     this.filterChoices()
+    this.character = this.gameService.getActiveCharacter();
+    this.updateBackground()
     this.gameService.deathNoteModal$.subscribe(show => {
       console.log('Modal visibility changed: ', show)
       this.showDeathNoteModal = show;
     })
+  }
+  normalizeGender(gender?: string): 'male' | 'female' {
+    return (gender ?? '').toLowerCase().startsWith('f') ? 'female' : 'male';    
+  }
+  buildHeadFilename(gender?: string, head?: string): string {
+    const g = this.normalizeGender(gender);
+    const n = head === '2' ? 2 : 1;
+    return `${g}Head${n}.png`;  
+  }
+  updatePortrait() {
+    const c = this.gameService.getActiveCharacter();
+    const filename = this.buildHeadFilename(c?.gender, c?.head);
+    this.portraitUrl = `/assets/data/${filename}`;
+    console.log('portraitUrl:', this.portraitUrl);
+  }
+  updateBackground() {
+    const levelNumber: number = this.gameService.getActiveCharacter()?.currentLevel ?? 1;
+    const index = Math.floor(levelNumber);
+    const clamped = Math.min(Math.max(index, 1), 6);
+    this.backgroundUrl = `url('/assets/data/background_${clamped}.png')`;
+    
   }
   
   toggleInventory() {
@@ -63,6 +87,7 @@ export class GameViewComponent implements OnInit {
           this.currentLineIndex = 0;
           this.currentLine = this.levelData.dialog[0];
           this.filterChoices();
+          this.updateBackground()
         })
         .catch(err => {
           console.error('Failed to reload character:', err);

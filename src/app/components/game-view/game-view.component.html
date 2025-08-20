@@ -1,9 +1,12 @@
+
+
+<div class="stage" [style.background-image]="backgroundUrl" (click)="advanceDialog()">
 <button class="btn btn-dark" (click)="toggleInventory()">Inventory</button>
 <button class="btn btn-red" (click)="exitToList()">Exit</button>
-
-<div class="stage" (click)="advanceDialog()">
-
   <div class="dialogue-box">
+    <div class="portrait-frame" *ngIf="portraitUrl">
+      <img [src]="portraitUrl" class="portrait" alt="Character portrait" />
+    </div>
     <img *ngIf="" [src]="" class="portrait" />
     <div class="dialogue-text">
       <p>{{ currentLine }}</p>

@@ -5,7 +5,7 @@ export const story: Record<number, StoryLevel> = {
       dialog: [
         "You awaken in a cold damp cell.",
         "A note lies beside you.",
-        "Hello friend, my name is Sir Alaric. I am a paladin of the Holy Order, sent to purge the necromancer who resides in this tower.",
+        "Hello friend, I am a paladin of the Holy Order, sent to purge the necromancer who resides in this tower.",
         "I found you unconscious and imprisoned.", "I healed your wounds with a minor blessing, but had to leave when the tower's alarms triggered.",
         "Follow the instructions in this note to escape. Do not linger.",
         "You look at the door and it seems to really be unlocked.",
@@ -85,12 +85,12 @@ export const story: Record<number, StoryLevel> = {
   
     6: {
       dialog: [
-        "Inside the chamber lies a man—Rail—his legs severed, blood pooling beneath him.",
+        "Inside the chamber lies a man, his legs severed, blood pooling beneath him.",
         "He groans and beckons you closer.",
         "'The necromancer... I tried to stop him. He’s dead now. Those charred remains over there... that was him.'",
         "'Take this crystal. It opens the door to his study. There’s treasure beyond imagining.'",
         "You sense something off. The wounds look like sword cuts, not magical burns.",
-        "Could Rail be lying?"
+        "Could  he be lying?"
       ],
       choices: [
         "Trust Rail and take the crystal",
