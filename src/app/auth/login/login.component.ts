@@ -26,7 +26,7 @@ export class LogicComponent {
   onSubmit(): void {
     const rawForm = this.form.getRawValue()
     this.authService.login(rawForm.email, rawForm.password).subscribe({
-      next: () => this.router.navigateByUrl('/'),
+      next: () => this.router.navigateByUrl('/list'),
       error: (err) => this.errorMessage = err.code
     });
     

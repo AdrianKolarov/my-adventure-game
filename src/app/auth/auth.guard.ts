@@ -12,7 +12,6 @@ export const authGuard: CanActivateFn = () => {
     take(1), 
     map(user => {
       const isAuthenticated = !!user;
-      console.log("AuthGuard reactive check:", isAuthenticated);
 
       if (!isAuthenticated) {
         router.navigate(['/login']);

@@ -1,4 +1,4 @@
-import { StoryLevel } from "../interfaces/types";
+import { StoryLevel } from "../../app/interfaces/story.interface";
 
 export const story: Record<number, StoryLevel> = {
     1: {

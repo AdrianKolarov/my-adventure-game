@@ -22,11 +22,26 @@
   color: white;
 }
 
-
 .portrait {
-  width: 100px;
-  height: 100px;
+  position: absolute;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
+  border: rgba(255,255,255,0.2) 2px solid;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.7);
+  bottom: 12vh;
+  left:15vw;
+}
+
+.portrait-inventory {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border: rgba(255,255,255,0.25) 5px double;
+  border-radius: 10px;
+  background-color: #b39166;
 }
 
 .dialogue-text {
@@ -70,6 +85,7 @@
   max-width: 300px;
   width: 60%;
 }
+
 .btn {
   padding: 8px 14px;
   border: none;
@@ -108,4 +124,81 @@
 .btn-accent:hover {
   background: #1f5fe0;
   transform: translateY(-1px);
+}
+
+.modal.modal-inventory {
+  width: 900px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow: auto;
+  padding: 24px;
+  border-radius: 12px;
+  background: #9a7a53; 
+}
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.portrait-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(0,0,0,0.08);
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+}
+
+.char-name {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 6px;
+}
+
+.char-gender {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.section-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.stat-list,
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.stat-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding: 6px 8px;
+  border-bottom: 1px dashed rgba(0,0,0,0.2);
+}
+
+.stat-key { text-transform: capitalize; }
+.stat-val { font-weight: 700; }
+
+.item-list li {
+  padding: 6px 8px;
+  margin-bottom: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  background: rgba(0,0,0,0.08);
+}
+
+.actions-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
 }

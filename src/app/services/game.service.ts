@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { story } from '../data/story';
-import { StoryLevel } from '../interfaces/types';
+import { story } from '../../assets/data/story';
+import { StoryLevel } from '../interfaces/story.interface';
 import { PlayerCharactersService } from './player-characters.service';
 import { BehaviorSubject } from 'rxjs';
 import { GraveyardService } from './graveyard.service';

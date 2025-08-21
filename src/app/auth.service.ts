@@ -3,7 +3,7 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, user 
 import { signOut, updateCurrentUser, updateProfile } from "@firebase/auth";
 import { Router } from "@angular/router";
 import { Observable, from } from "rxjs";
-import { UserInterface } from "./user.interface";
+import { UserInterface } from "./interfaces/user.interface";
 
 @Injectable({
     providedIn: 'root'

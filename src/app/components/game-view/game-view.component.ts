@@ -33,24 +33,17 @@ export class GameViewComponent implements OnInit {
     this.filterChoices()
     this.character = this.gameService.getActiveCharacter();
     this.updateBackground()
+    this.portraitUrl = this.getPortrait();
     this.gameService.deathNoteModal$.subscribe(show => {
-      console.log('Modal visibility changed: ', show)
       this.showDeathNoteModal = show;
     })
   }
-  normalizeGender(gender?: string): 'male' | 'female' {
-    return (gender ?? '').toLowerCase().startsWith('f') ? 'female' : 'male';    
-  }
-  buildHeadFilename(gender?: string, head?: string): string {
-    const g = this.normalizeGender(gender);
-    const n = head === '2' ? 2 : 1;
-    return `${g}Head${n}.png`;  
-  }
-  updatePortrait() {
-    const c = this.gameService.getActiveCharacter();
-    const filename = this.buildHeadFilename(c?.gender, c?.head);
-    this.portraitUrl = `/assets/data/${filename}`;
-    console.log('portraitUrl:', this.portraitUrl);
+ 
+  getPortrait(): string {
+    const c = this.character ?? this.gameService.getActiveCharacter();
+    const gender = (c?.gender?? '').toLowerCase().startsWith('f') ? 'female' : 'male'
+    const head = c?.head ?? '2';
+    return `/assets/data/${gender}Head${head}.png`; 
   }
   updateBackground() {
     const levelNumber: number = this.gameService.getActiveCharacter()?.currentLevel ?? 1;
@@ -62,7 +55,6 @@ export class GameViewComponent implements OnInit {
   
   toggleInventory() {
     this.showInventoryModal = !this.showInventoryModal;
-    console.log('Modal')
     if (this.showInventoryModal) {
       this.character = this.gameService.getActiveCharacter();
       this.statKeys = Object.keys(this.character?.stats || {});
@@ -118,10 +110,6 @@ export class GameViewComponent implements OnInit {
     const intellect = character?.stats.intellect ?? 0;
     const inventory = character?.inventory ?? [];
   
-    console.log('Character intellect:', intellect); 
-    console.log('Inventory:', inventory);
-    console.log('Raw choices:', this.levelData.choices);
-  
     this.filteredChoices = this.levelData.choices.filter((choice: string) => {
       if (choice === "Investigate the charred remains instead") {
         return intellect >= 2;
@@ -134,8 +122,6 @@ export class GameViewComponent implements OnInit {
   
       return true;
     });
-  
-    console.log('Filtered choices:', this.filteredChoices);
   }
   exitToList() {
   this.router.navigate(['/list']);
@@ -158,7 +144,6 @@ export class GameViewComponent implements OnInit {
       .then(() => {
         this.deathNoteText = '';
         this.showDeathNoteModal = false;
-        console.log('Death note submitted.');
         setTimeout(() => {
           this.router.navigate(['/list']);
         }, 500)

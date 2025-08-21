@@ -3,11 +3,12 @@
 <div class="stage" [style.background-image]="backgroundUrl" (click)="advanceDialog()">
 <button class="btn btn-dark" (click)="toggleInventory()">Inventory</button>
 <button class="btn btn-red" (click)="exitToList()">Exit</button>
-  <div class="dialogue-box">
-    <div class="portrait-frame" *ngIf="portraitUrl">
+<div class="portrait-frame">
       <img [src]="portraitUrl" class="portrait" alt="Character portrait" />
     </div>
-    <img *ngIf="" [src]="" class="portrait" />
+ 
+<div class="dialogue-box">
+    
     <div class="dialogue-text">
       <p>{{ currentLine }}</p>
     </div>
@@ -31,20 +32,37 @@
 
 
 <div *ngIf="showInventoryModal" class="modal-backdrop">
-  <div class="modal">
+  <div class="modal modal-inventory">
     <h2>Character Inventory</h2>
-    <div *ngIf="character">
-      <p><strong>Head:</strong> {{ character.head }}</p>
-      <p><strong>Gender:</strong> {{ character.gender }}</p>
-      <p><strong>Stats:</strong></p>
-      <ul>
-        <li *ngFor="let stat of statKeys">{{ stat }}: {{ character.stats[stat] }}</li>
-      </ul>
-      <p><strong>Inventory:</strong></p>
-      <ul>
-        <li *ngFor="let item of character.inventory">{{ item }}</li>
-      </ul>
+
+    <div *ngIf="character" class="inventory-grid">
+      <aside class="inventory-aside">
+        <div class="portrait-card">
+          <img [attr.src]="portraitUrl || null" class="portrait-inventory" alt="Character portrait" />
+          <div class="char-name">Name: {{ character.name }}</div>
+          <div class="char-gender">{{ character.gender }}</div>
+        </div>
+      </aside>
+
+      <section class="inventory-main">
+        <h3 class="section-title">Stats</h3>
+        <ul class="stat-list">
+          <li *ngFor="let stat of statKeys">
+            <span class="stat-key">{{ stat }}</span>
+            <span class="stat-val">{{ character.stats[stat] }}</span>
+          </li>
+        </ul>
+
+        <h3 class="section-title">Inventory</h3>
+        <ul class="item-list">
+          <li *ngFor="let item of character.inventory">{{ item }}</li>
+        </ul>
+      </section>
     </div>
-    <button class="btn btn-dark" (click)="toggleInventory()">Close</button>
+
+    <div class="actions-row">
+      <button class="btn btn-dark" (click)="toggleInventory()">Close</button>
+    </div>
   </div>
 </div>
+

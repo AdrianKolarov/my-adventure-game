@@ -5,13 +5,16 @@
 }
 
 .wrapper {
-  background-image: url('./data/login_background.png');
+  background-image: url('/assets/data/login_background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
 }
-
+.footer {
+  background-color: goldenrod;
+  text-align: center;
+}
 
 a {
   color: white;

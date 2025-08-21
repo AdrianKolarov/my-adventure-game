@@ -28,7 +28,7 @@ export class RegisterComponent {
   onSubmit(): void {
     const rawForm = this.form.getRawValue()
     this.authService.register(rawForm.email, rawForm.username, rawForm.password).subscribe({
-      next: () => this.router.navigateByUrl('/'),
+      next: () => this.router.navigateByUrl('/list'),
       error: (err) => this.errorMessage = err.code
     });
     

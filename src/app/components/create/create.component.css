@@ -1,5 +1,5 @@
 .wrapper {
-  background-image: url('../../data/create-background.png');
+  background-image: url('/assets/data/create-background.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
